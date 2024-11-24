@@ -6,7 +6,8 @@ function SendEmails() {
   const [users] = useState([
     { username: 'gitty sinai', email: 'g0527116807@gmail.com' },
     { username: 'noa katz', email: 'noakatz465@gmail.com' },
-    { username: 'shoshana grilak', email: 'shoshgrilak@gmail.com' },
+    { username: 'Sary', email: '    g5374533@gmail.com' },
+
     // { username: 'Bob White', email: 'bob@example.com' },
   ]);
 
