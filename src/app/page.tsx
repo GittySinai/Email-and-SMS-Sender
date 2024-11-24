@@ -1,12 +1,20 @@
-import Image from "next/image";
-import SendEmails from "./components/SendEmails";
-import SendSMS from "./components/SendSMS";
+import Link from 'next/link';
 
 export default function Home() {
   return (
-<div>
-{/* <SendEmails></SendEmails> */}
-<SendSMS></SendSMS>
-</div>
+    <div>
+      <h1>Welcome to Messaging App</h1>
+      <ul>
+        <li>
+          <Link href="/pages/sendSMS">Go to Send SMS</Link>
+        </li>
+        <li>
+        <Link href="/pages/sendCall">Go to Send Call"</Link>
+        </li>
+        <li>
+          <Link href="/pages/sendEmails">Go to Send Emails"</Link>
+        </li>
+      </ul>
+    </div>
   );
 }
