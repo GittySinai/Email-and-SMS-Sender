@@ -6,9 +6,6 @@ function SendEmails() {
   const [users] = useState([
     { username: 'gitty sinai', email: 'g0527116807@gmail.com' },
     { username: 'noa katz', email: 'noakatz465@gmail.com' },
-    { username: 'Sary', email: '    g5374533@gmail.com' },
-
-    // { username: 'Bob White', email: 'bob@example.com' },
   ]);
 
   const [status, setStatus] = useState('');
@@ -20,7 +17,18 @@ function SendEmails() {
         users.map((user) => ({
           to: user.email,
           subject: `Hello, ${user.username}!`,
-          text: `Dear ${user.username},\n\nThis is a personalized email for you.\n\nBest regards,\nYour Team`,
+          html: `
+            <div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
+              <h1 style="color: #4CAF50;">Hello, ${user.username}!</h1>
+              <p>We are excited to connect with you. Here are some details:</p>
+              <ul>
+                <li><strong>Username:</strong> ${user.username}</li>
+                <li><strong>Email:</strong> ${user.email}</li>
+              </ul>
+              <p style="margin-top: 20px;">Best regards,</p>
+              <p style="font-weight: bold; color: #4CAF50;">Your Team</p>
+            </div>
+          `,
         }))
       );
   
@@ -30,7 +38,6 @@ function SendEmails() {
         setStatus(`Error sending emails: ${response.data.error}`);
       }
     } catch (error) {
-      // Type assertion for error
       if (axios.isAxiosError(error)) {
         setStatus(`Error: ${error.response ? error.response.data.error : error.message}`);
       } else {
@@ -38,6 +45,7 @@ function SendEmails() {
       }
     }
   };
+  
   
 
   return (
